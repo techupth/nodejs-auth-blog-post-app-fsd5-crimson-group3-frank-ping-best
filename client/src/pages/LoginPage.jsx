@@ -8,6 +8,11 @@ function LoginPage() {
     event.preventDefault();
     // 🐨 Todo: Exercise #4
     //  นำ Function `login` ใน AuthContext มา Execute ใน Event Handler ตรงนี้
+    const login = async (data) => {
+      const result = await axios.post("http://127.0.0.1:5173/login", data);
+      const token = result.data.token;
+      localStorage.setItem("token", token);
+    };
   };
 
   return (
